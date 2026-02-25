@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC Widget - Dealer Installation Guide</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f9fafb;
+    }
+    h1 { color: #05317b; font-size: 36px; margin-bottom: 8px; }
+    h2 { color: #1B4D3E; font-size: 24px; margin-top: 40px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    h3 { color: #374151; font-size: 18px; margin-top: 24px; }
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 16px 0;
+      position: relative;
+    }
+    .code-block code { font-family: 'Courier New', monospace; font-size: 14px; }
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #2E5ED6;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .copy-btn:hover { background: #2451C5; }
+    .option-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .option-table th { background: #f3f4f6; padding: 12px; text-align: left; font-weight: 600; }
+    .option-table td { padding: 12px; border-top: 1px solid #e5e7eb; }
+    .option-table code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+    .example-box {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .badge {
+      display: inline-block;
+      background: #10B981;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CarGurus SMC Widget <span class="badge">v1.0</span></h1>
+  <p style="font-size: 18px; color: #6b7280;">Installation guide for dealership websites</p>
+
+  <h2>🚀 Quick Start</h2>
+  <p>Choose your implementation method and copy the code below:</p>
+
+  <h3>Option A: Full-Width Blade (Recommended)</h3>
+  <p>Embeds directly into your page as a section. Perfect for homepage or dedicated "Sell Your Car" pages.</p>
+
+  <div class="code-block">
+    <button class="copy-btn" onclick="copyCode('code1')">Copy</button>
+    <code id="code1">&lt;!-- Place this where you want the widget to appear --&gt;
+&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="YOUR_DEALER_ID"
+        data-dealer-name="Your Dealership Name"
+        data-theme="dark"
+        data-flow="detailed"&gt;
+&lt;/script&gt;</code>
+  </div>
+
+  <h3>Option B: Modal/Popup</h3>
+  <p>Displays a button that opens the widget in a modal overlay. Great for navigation bars or CTAs.</p>
+
+  <div class="code-block">
+    <button class="copy-btn" onclick="copyCode('code2')">Copy</button>
+    <code id="code2">&lt;!-- Place this where you want the trigger button --&gt;
+&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="YOUR_DEALER_ID"
+        data-dealer-name="Your Dealership Name"
+        data-mode="modal"
+        data-button-text="Get An Offer"
+        data-theme="dark"
+        data-flow="quick"&gt;
+&lt;/script&gt;</code>
+  </div>
+
+  <h2>⚙️ Configuration Options</h2>
+  <table class="option-table">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Required</th>
+        <th>Options</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>data-dealer-id</code></td>
+        <td><strong>Yes</strong></td>
+        <td>Your dealer ID</td>
+        <td>Unique identifier provided by CarGurus</td>
+      </tr>
+      <tr>
+        <td><code>data-dealer-name</code></td>
+        <td><strong>Yes</strong></td>
+        <td>Text string</td>
+        <td>Your dealership name (e.g., "Riverside Motors")</td>
+      </tr>
+      <tr>
+        <td><code>data-theme</code></td>
+        <td>No</td>
+        <td><code>dark</code> | <code>light</code></td>
+        <td>Color theme (default: dark)</td>
+      </tr>
+      <tr>
+        <td><code>data-flow</code></td>
+        <td>No</td>
+        <td><code>detailed</code> | <code>quick</code></td>
+        <td>Number of steps (default: detailed)</td>
+      </tr>
+      <tr>
+        <td><code>data-mode</code></td>
+        <td>No</td>
+        <td><code>inline</code> | <code>modal</code></td>
+        <td>Display mode (default: inline)</td>
+      </tr>
+      <tr>
+        <td><code>data-button-text</code></td>
+        <td>No</td>
+        <td>Text string</td>
+        <td>Modal button label (modal mode only)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>📋 Examples</h2>
+
+  <div class="example-box">
+    <h3>Example 1: Homepage Hero Section (Dark Theme)</h3>
+    <div class="code-block" style="margin-top: 12px;">
+      <button class="copy-btn" onclick="copyCode('code3')">Copy</button>
+      <code id="code3">&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="12345"
+        data-dealer-name="Riverside Motors"
+        data-theme="dark"
+        data-flow="quick"&gt;
+&lt;/script&gt;</code>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <h3>Example 2: Dedicated Page (Light Theme, Detailed)</h3>
+    <div class="code-block" style="margin-top: 12px;">
+      <button class="copy-btn" onclick="copyCode('code4')">Copy</button>
+      <code id="code4">&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="12345"
+        data-dealer-name="Riverside Motors"
+        data-theme="light"
+        data-flow="detailed"&gt;
+&lt;/script&gt;</code>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <h3>Example 3: Navigation Button (Modal)</h3>
+    <div class="code-block" style="margin-top: 12px;">
+      <button class="copy-btn" onclick="copyCode('code5')">Copy</button>
+      <code id="code5">&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="12345"
+        data-dealer-name="Riverside Motors"
+        data-mode="modal"
+        data-button-text="Value My Car"
+        data-theme="dark"
+        data-flow="quick"&gt;
+&lt;/script&gt;</code>
+    </div>
+  </div>
+
+  <h2>💡 Best Practices</h2>
+  <ul>
+    <li><strong>Dark theme:</strong> Works best on light-colored pages or as a standalone hero section</li>
+    <li><strong>Light theme:</strong> Ideal for pages with darker backgrounds or existing content</li>
+    <li><strong>Quick flow:</strong> Recommended for mobile-heavy traffic (fewer steps = higher completion)</li>
+    <li><strong>Detailed flow:</strong> Recommended for desktop or when you want more vehicle data upfront</li>
+    <li><strong>Modal mode:</strong> Great for adding to existing pages without layout disruption</li>
+  </ul>
+
+  <h2>🔧 Troubleshooting</h2>
+  <ul>
+    <li><strong>Widget not appearing?</strong> Check that your dealer ID is correct and the container div exists</li>
+    <li><strong>Styling conflicts?</strong> The widget uses an iframe to prevent CSS conflicts</li>
+    <li><strong>Need help?</strong> Contact your CarGurus Account Manager</li>
+  </ul>
+
+  <script>
+    function copyCode(id) {
+      const code = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+      });
+    }
+  </script>
+</body>
+</html>

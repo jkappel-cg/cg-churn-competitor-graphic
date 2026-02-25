@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riverside Motors - Test Embed Page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #111827;
+    }
+
+    /* Simulated Dealer Website */
+    .dealer-header {
+      background: #1B4D3E;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .dealer-logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .dealer-nav {
+      display: flex;
+      gap: 32px;
+    }
+    .dealer-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .dealer-nav a:hover {
+      opacity: 0.8;
+    }
+
+    .dealer-hero {
+      background: linear-gradient(135deg, #1B4D3E, #2D6A4F);
+      color: white;
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .dealer-hero h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .dealer-hero p {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    .content-section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .content-section h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: #1B4D3E;
+    }
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .car-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .car-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #e5e7eb;
+    }
+    .car-card-content {
+      padding: 16px;
+    }
+    .car-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .car-card p {
+      color: #6B7280;
+      font-size: 14px;
+    }
+
+    .dealer-footer {
+      background: #0F2E24;
+      color: #9CA3AF;
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* Test Controls */
+    .test-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 20px;
+      z-index: 999999;
+      max-width: 300px;
+    }
+    .test-controls h3 {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #111827;
+    }
+    .test-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      background: #2E5ED6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .test-btn:hover {
+      background: #2451C5;
+    }
+    .test-btn.secondary {
+      background: #6B7280;
+    }
+    .test-btn.secondary:hover {
+      background: #4B5563;
+    }
+    .code-display {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      margin-top: 16px;
+      overflow-x: auto;
+      display: none;
+    }
+    .code-display.active {
+      display: block;
+    }
+
+    /* Widget container styling */
+    #cargurus-smc-widget {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .inventory-grid {
+        grid-template-columns: 1fr;
+      }
+      .test-controls {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Simulated Dealer Website -->
+  <div class="dealer-header">
+    <div class="dealer-logo">🚗 Riverside Motors</div>
+    <div class="dealer-nav">
+      <a href="#">Inventory</a>
+      <a href="#">Finance</a>
+      <a href="#">Service</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+
+  <div class="dealer-hero">
+    <h1>Welcome to Riverside Motors</h1>
+    <p>Your trusted dealership since 1995</p>
+  </div>
+
+  <div class="content-section" id="inventory-section">
+    <h2>Featured Inventory</h2>
+    <p style="color: #6B7280; margin-bottom: 24px;">Check out our latest arrivals</p>
+    <div class="inventory-grid">
+      <div class="car-card">
+        <img src="data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='200' fill='%23e5e7eb'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='%236B7280' font-size='16'%3E2023 Honda Accord%3C/text%3E%3C/svg%3E">
+        <div class="car-card-content">
+          <h3>2023 Honda Accord</h3>
+          <p>$28,995 • 12K miles</p>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='200' fill='%23e5e7eb'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='%236B7280' font-size='16'%3E2022 Toyota RAV4%3C/text%3E%3C/svg%3E">
+        <div class="car-card-content">
+          <h3>2022 Toyota RAV4</h3>
+          <p>$32,500 • 18K miles</p>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="data:image/svg+xml,%3Csvg width='400' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='200' fill='%23e5e7eb'/%3E%3Ctext x='200' y='100' text-anchor='middle' fill='%236B7280' font-size='16'%3E2021 Ford F-150%3C/text%3E%3C/svg%3E">
+        <div class="car-card-content">
+          <h3>2021 Ford F-150</h3>
+          <p>$38,900 • 25K miles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CARGURUS SMC WIDGET EMBED STARTS HERE -->
+  <!-- ============================================ -->
+
+  <div id="cargurus-smc-widget"></div>
+
+  <!-- ============================================ -->
+  <!-- CARGURUS SMC WIDGET EMBED ENDS HERE -->
+  <!-- ============================================ -->
+
+  <div class="dealer-footer">
+    <p>&copy; 2026 Riverside Motors. All rights reserved.</p>
+    <p style="margin-top: 8px; font-size: 14px;">123 Main Street, Boston, MA 02138 • (555) 555-5555</p>
+  </div>
+
+  <!-- Test Controls -->
+  <div class="test-controls">
+    <h3>🧪 Test Widget Embed</h3>
+    <button class="test-btn" onclick="loadInlineDark()">Inline - Dark Theme</button>
+    <button class="test-btn" onclick="loadInlineLight()">Inline - Light Theme</button>
+    <button class="test-btn" onclick="loadModal()">Modal Popup</button>
+    <button class="test-btn secondary" onclick="toggleCode()">Show Embed Code</button>
+
+    <div class="code-display" id="codeDisplay"></div>
+  </div>
+
+  <script>
+    let currentScript = null;
+
+    function clearWidget() {
+      // Remove existing widget
+      const container = document.getElementById('cargurus-smc-widget');
+      container.innerHTML = '';
+
+      // Remove old script
+      if (currentScript) {
+        currentScript.remove();
+      }
+
+      // Remove modal overlay if exists
+      const modal = document.getElementById('cargurus-smc-modal-overlay');
+      if (modal) modal.remove();
+    }
+
+    function loadInlineDark() {
+      clearWidget();
+
+      const script = document.createElement('script');
+      script.src = 'widget-embed-test.js';
+      script.setAttribute('data-dealer-id', '12345');
+      script.setAttribute('data-dealer-name', 'Riverside Motors');
+      script.setAttribute('data-theme', 'dark');
+      script.setAttribute('data-flow', 'detailed');
+      script.setAttribute('data-mode', 'inline');
+
+      document.body.appendChild(script);
+      currentScript = script;
+
+      updateCodeDisplay('inline-dark');
+      scrollToWidget();
+    }
+
+    function loadInlineLight() {
+      clearWidget();
+
+      const script = document.createElement('script');
+      script.src = 'widget-embed-test.js';
+      script.setAttribute('data-dealer-id', '12345');
+      script.setAttribute('data-dealer-name', 'Riverside Motors');
+      script.setAttribute('data-theme', 'light');
+      script.setAttribute('data-flow', 'quick');
+      script.setAttribute('data-mode', 'inline');
+
+      document.body.appendChild(script);
+      currentScript = script;
+
+      updateCodeDisplay('inline-light');
+      scrollToWidget();
+    }
+
+    function loadModal() {
+      clearWidget();
+
+      const script = document.createElement('script');
+      script.src = 'widget-embed-test.js';
+      script.setAttribute('data-dealer-id', '12345');
+      script.setAttribute('data-dealer-name', 'Riverside Motors');
+      script.setAttribute('data-theme', 'dark');
+      script.setAttribute('data-flow', 'quick');
+      script.setAttribute('data-mode', 'modal');
+      script.setAttribute('data-button-text', 'Get An Offer');
+
+      document.body.appendChild(script);
+      currentScript = script;
+
+      updateCodeDisplay('modal');
+      scrollToWidget();
+    }
+
+    function scrollToWidget() {
+      setTimeout(() => {
+        document.getElementById('cargurus-smc-widget').scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 300);
+    }
+
+    function toggleCode() {
+      const display = document.getElementById('codeDisplay');
+      display.classList.toggle('active');
+    }
+
+    function updateCodeDisplay(type) {
+      const codes = {
+        'inline-dark': `&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="12345"
+        data-dealer-name="Riverside Motors"
+        data-theme="dark"
+        data-flow="detailed"&gt;
+&lt;/script&gt;`,
+        'inline-light': `&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="12345"
+        data-dealer-name="Riverside Motors"
+        data-theme="light"
+        data-flow="quick"&gt;
+&lt;/script&gt;`,
+        'modal': `&lt;div id="cargurus-smc-widget"&gt;&lt;/div&gt;
+
+&lt;script src="https://widgets.cargurus.com/smc/widget-embed.js"
+        data-dealer-id="12345"
+        data-dealer-name="Riverside Motors"
+        data-mode="modal"
+        data-button-text="Get An Offer"
+        data-theme="dark"
+        data-flow="quick"&gt;
+&lt;/script&gt;`
+      };
+
+      document.getElementById('codeDisplay').innerHTML = codes[type];
+    }
+
+    // Load inline dark by default
+    window.addEventListener('load', () => {
+      loadInlineDark();
+    });
+  </script>
+
+</body>
+</html>

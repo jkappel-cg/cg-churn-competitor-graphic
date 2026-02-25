@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC Widget - All Implementation Patterns</title>
+  <link rel="stylesheet" href="assets/css/widget-v2.css">
+  <style>
+    body { margin: 0; padding: 0; font-family: 'Graphik', sans-serif; }
+
+    /* Floating Toggle */
+    .pattern-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      padding: 16px;
+      z-index: 10000;
+      min-width: 200px;
+    }
+    .pattern-toggle h3 {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+    .pattern-btn {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      border: 2px solid #E5E7EB;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .pattern-btn:hover {
+      border-color: #2E5ED6;
+      background: #F0F5FF;
+    }
+    .pattern-btn.active {
+      background: #2E5ED6;
+      color: white;
+      border-color: #2E5ED6;
+    }
+    .theme-toggle {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #E5E7EB;
+    }
+    .theme-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-right: 8px;
+      border: 1px solid #D1D5DB;
+      background: white;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .theme-btn.active {
+      background: #374151;
+      color: white;
+    }
+
+    /* Simulated Dealer Site */
+    .dealer-header {
+      background: #1B4D3E;
+      padding: 20px 40px;
+      border-bottom: 1px solid #155239;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dealer-logo { font-size: 20px; font-weight: 700; color: white; }
+    .dealer-nav { display: flex; gap: 24px; font-size: 14px; }
+    .dealer-nav a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    .dealer-hero {
+      background: linear-gradient(135deg, #1B4D3E, #2D6A4F);
+      color: white;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    .dealer-hero h1 { font-size: 48px; margin: 0 0 16px 0; }
+    .dealer-content {
+      padding: 60px 40px;
+      text-align: center;
+      background: #F9FAFB;
+    }
+    .dealer-footer {
+      background: #0F2E24;
+      color: #9CA3AF;
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-container {
+      background: white;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    /* Patterns */
+    .pattern { display: none; }
+    .pattern.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Toggle -->
+  <div class="pattern-toggle">
+    <h3>Implementation</h3>
+    <button class="pattern-btn active" data-pattern="standalone">A. Standalone Page</button>
+    <button class="pattern-btn" data-pattern="blade">B. Embedded Blade</button>
+    <button class="pattern-btn" data-pattern="modal">C. Modal Popup</button>
+
+    <div class="theme-toggle">
+      <div style="font-size: 12px; margin-bottom: 8px; color: #6B7280;">Theme:</div>
+      <button class="theme-btn active" data-theme="dark">Dark</button>
+      <button class="theme-btn" data-theme="light">Light</button>
+    </div>
+  </div>
+
+  <!-- PATTERN A: STANDALONE PAGE -->
+  <div class="pattern active" id="pattern-standalone">
+    <div class="smc-widget-blade theme-dark">
+      <div class="smc-widget-container">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+          <h1 class="smc-widget-headline">Sell your car for the best price</h1>
+          <p class="smc-widget-subheadline">Compare multiple offers from Riverside Motors in under 2 minutes.</p>
+        </div>
+
+        <div class="smc-form" style="max-width: 700px; margin: 40px auto 0;">
+          <form>
+            <div class="smc-form-grid smc-form-grid-3">
+              <div class="smc-form-field">
+                <label class="smc-form-label">License plate or VIN</label>
+                <input type="text" class="smc-form-input" placeholder="e.g., C4R GURU">
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">State</label>
+                <select class="smc-form-select">
+                  <option>State</option>
+                  <option>Massachusetts</option>
+                </select>
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">Mileage</label>
+                <input type="number" class="smc-form-input" placeholder="45000">
+              </div>
+            </div>
+            <button type="button" class="smc-btn smc-btn-primary smc-btn-full">Get started</button>
+          </form>
+          <div class="smc-powered-by" style="justify-content: center; margin-top: 24px; color: #6B7280;">
+            <span>Powered by</span> <strong style="color: #2E5ED6;">CarGurus</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATTERN B: EMBEDDED BLADE -->
+  <div class="pattern" id="pattern-blade">
+    <div class="dealer-header">
+      <div class="dealer-logo">Riverside Motors</div>
+      <div class="dealer-nav">
+        <a href="#">Inventory</a>
+        <a href="#">Finance</a>
+        <a href="#">Service</a>
+      </div>
+    </div>
+
+    <div class="dealer-hero">
+      <h1>Find Your Perfect Vehicle</h1>
+      <p>Browse our inventory of quality pre-owned cars</p>
+    </div>
+
+    <div class="dealer-content">
+      <p style="color: #6B7280;">↓ SMC Widget Embedded Below ↓</p>
+    </div>
+
+    <!-- WIDGET BLADE -->
+    <div class="smc-widget-blade theme-dark">
+      <div class="smc-widget-container">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+          <h1 class="smc-widget-headline">Sell your car for the best price</h1>
+          <p class="smc-widget-subheadline">Get an instant offer from Riverside Motors.</p>
+        </div>
+        <div class="smc-form" style="max-width: 700px; margin: 40px auto 0;">
+          <form>
+            <div class="smc-form-grid smc-form-grid-3">
+              <div class="smc-form-field">
+                <label class="smc-form-label">License plate or VIN</label>
+                <input type="text" class="smc-form-input" placeholder="e.g., C4R GURU">
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">State</label>
+                <select class="smc-form-select"><option>State</option></select>
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">Mileage</label>
+                <input type="number" class="smc-form-input" placeholder="45000">
+              </div>
+            </div>
+            <button type="button" class="smc-btn smc-btn-primary smc-btn-full">Get started</button>
+          </form>
+          <div class="smc-powered-by" style="justify-content: center; margin-top: 24px; color: #6B7280;">
+            <span>Powered by</span> <strong style="color: #2E5ED6;">CarGurus</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dealer-footer">© 2026 Riverside Motors</div>
+  </div>
+
+  <!-- PATTERN C: MODAL POPUP -->
+  <div class="pattern" id="pattern-modal">
+    <div class="dealer-header">
+      <div class="dealer-logo">Riverside Motors</div>
+      <div class="dealer-nav">
+        <a href="#">Inventory</a>
+        <a href="#">Finance</a>
+        <button class="smc-btn smc-btn-primary" id="triggerModal" style="height: 40px; padding: 0 24px; font-size: 14px; background: #2D6A4F; border-color: #2D6A4F;">
+          Get An Offer
+        </button>
+      </div>
+    </div>
+
+    <div class="dealer-hero">
+      <h1>Welcome to Riverside Motors</h1>
+      <p>Your trusted dealership since 1995</p>
+      <button class="smc-btn smc-btn-primary" id="triggerModal2" style="margin-top: 24px; background: #52B788; border-color: #52B788;">
+        Value My Car
+      </button>
+    </div>
+
+    <div class="dealer-content">
+      <p>Click "Get An Offer" or "Value My Car" to see the modal experience</p>
+    </div>
+
+    <div class="dealer-footer">© 2026 Riverside Motors</div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-container">
+        <button class="modal-close" id="closeModal">×</button>
+        <div style="padding: 48px 40px;">
+          <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h1 style="font-family: 'Rund Display'; font-size: 36px; margin-bottom: 16px;">Get an instant offer</h1>
+            <p style="font-size: 18px; color: #6B7280; margin-bottom: 32px;">Tell us about your vehicle</p>
+          </div>
+
+          <form style="max-width: 600px; margin: 0 auto;">
+            <div class="smc-form-grid smc-form-grid-3">
+              <div class="smc-form-field">
+                <label class="smc-form-label">License plate or VIN</label>
+                <input type="text" class="smc-form-input" placeholder="e.g., C4R GURU">
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">State</label>
+                <select class="smc-form-select"><option>State</option></select>
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">Mileage</label>
+                <input type="number" class="smc-form-input" placeholder="45000">
+              </div>
+            </div>
+            <button type="button" class="smc-btn smc-btn-primary smc-btn-full">Get started</button>
+          </form>
+
+          <div class="smc-powered-by" style="justify-content: center; margin-top: 24px; color: #6B7280;">
+            <span>Powered by</span> <strong style="color: #2E5ED6;">CarGurus</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarGurus SMC Widget</title>
+  <link rel="stylesheet" href="assets/css/widget-v2.css">
+  <link rel="stylesheet" href="assets/css/widget-full-flow.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Graphik', sans-serif;
+      overflow-x: hidden;
+    }
+    .widget-wrapper {
+      min-height: 100vh;
+    }
+    .smc-screen { display: none; }
+    .smc-screen.active { display: block; }
+  </style>
+</head>
+<body>
+  <div class="widget-wrapper">
+    <div class="smc-widget-blade" id="widget">
+      <div class="smc-widget-container">
+        <div id="widget-screens"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="widget-iframe.js"></script>
+</body>
+</html>

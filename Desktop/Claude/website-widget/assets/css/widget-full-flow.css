@@ -1,0 +1,343 @@
+/* Additional styles for full flow */
+
+/* Vehicle Card */
+.smc-vehicle-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--cg-gray-50);
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.smc-vehicle-image {
+  width: 120px;
+  height: 90px;
+  border-radius: 8px;
+  background: var(--cg-gray-300);
+  object-fit: cover;
+}
+
+.smc-vehicle-details {
+  flex: 1;
+}
+
+.smc-vehicle-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--cg-gray-900);
+}
+
+.smc-vehicle-vin {
+  font-size: 13px;
+  color: var(--cg-gray-500);
+  font-family: 'Courier New', monospace;
+}
+
+/* Condition Selector */
+.smc-condition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.smc-condition-card {
+  padding: 20px 16px;
+  border: 2px solid var(--cg-gray-300);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.smc-condition-card:hover {
+  border-color: var(--cg-blue-primary);
+  background: rgba(46, 94, 214, 0.05);
+}
+
+.smc-condition-card.selected {
+  border-color: var(--cg-blue-primary);
+  background: rgba(46, 94, 214, 0.1);
+  position: relative;
+}
+
+.smc-condition-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: var(--cg-blue-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.smc-condition-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--cg-gray-900);
+}
+
+.smc-condition-desc {
+  font-size: 13px;
+  color: var(--cg-gray-600);
+  line-height: 1.4;
+}
+
+/* Yes/No Grid */
+.smc-yesno-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.smc-yesno-btn {
+  padding: 14px;
+  border: 2px solid var(--cg-gray-300);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.smc-yesno-btn:hover {
+  border-color: var(--cg-blue-primary);
+}
+
+.smc-yesno-btn.selected {
+  border-color: var(--cg-blue-primary);
+  background: rgba(46, 94, 214, 0.1);
+  color: var(--cg-blue-primary);
+}
+
+/* Collapsible Section */
+.smc-section {
+  border: 1px solid var(--cg-gray-200);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.smc-section-header {
+  padding: 20px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.smc-section-header:hover {
+  background: var(--cg-gray-50);
+}
+
+.smc-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.smc-section-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: var(--cg-gray-900);
+  color: white;
+  border-radius: 4px;
+}
+
+.smc-section-toggle {
+  font-size: 24px;
+  color: var(--cg-gray-500);
+  transition: transform 0.2s;
+}
+
+.smc-section.open .smc-section-toggle {
+  transform: rotate(180deg);
+}
+
+.smc-section-body {
+  padding: 0 20px 20px;
+  display: none;
+}
+
+.smc-section.open .smc-section-body {
+  display: block;
+}
+
+/* Offer Display */
+.smc-offer-card {
+  background: linear-gradient(135deg, rgba(46, 94, 214, 0.05), rgba(46, 94, 214, 0.1));
+  border: 2px solid var(--cg-blue-primary);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  margin: 32px 0;
+}
+
+.smc-offer-label {
+  font-size: 16px;
+  color: var(--cg-gray-700);
+  margin-bottom: 12px;
+}
+
+.smc-offer-amount {
+  font-family: 'Rund Display', 'Graphik', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--cg-blue-primary);
+  margin-bottom: 16px;
+}
+
+.smc-offer-disclaimer {
+  font-size: 14px;
+  color: var(--cg-gray-600);
+  line-height: 1.6;
+}
+
+/* Confirmation */
+.smc-confirmation {
+  text-align: center;
+  padding: 60px 40px;
+}
+
+.smc-confirmation-icon {
+  width: 80px;
+  height: 80px;
+  background: #10B981;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: white;
+}
+
+.smc-confirmation-title {
+  font-family: 'Rund Display', 'Graphik', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--cg-gray-900);
+}
+
+.smc-confirmation-message {
+  font-size: 18px;
+  color: var(--cg-gray-700);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.smc-confirmation-details {
+  background: var(--cg-gray-50);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Loading State */
+.smc-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+.smc-spinner {
+  width: 56px;
+  height: 56px;
+  border: 4px solid var(--cg-gray-200);
+  border-top-color: var(--cg-blue-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.smc-loading-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: var(--cg-gray-700);
+}
+
+/* Button Group */
+.smc-button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Help Text */
+.smc-help-text {
+  font-size: 13px;
+  color: var(--cg-gray-600);
+  margin-top: 8px;
+}
+
+.smc-help-link {
+  color: var(--cg-blue-primary);
+  text-decoration: none;
+}
+
+.smc-help-link:hover {
+  text-decoration: underline;
+}
+
+/* Question Group */
+.smc-question {
+  margin-bottom: 24px;
+}
+
+.smc-question-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cg-gray-900);
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .smc-condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .smc-vehicle-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .smc-offer-amount {
+    font-size: 42px;
+  }
+
+  .smc-button-group {
+    grid-template-columns: 1fr;
+  }
+}

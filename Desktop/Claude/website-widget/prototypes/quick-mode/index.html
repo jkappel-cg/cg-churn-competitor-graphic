@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC Widget - Quick Mode</title>
+  <link rel="stylesheet" href="../../assets/css/widget-base.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .demo-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .demo-header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .demo-header p {
+      color: #666;
+      font-size: 16px;
+    }
+    .mode-badge {
+      display: inline-block;
+      background: #10B981;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <div class="demo-header">
+      <span class="mode-badge">QUICK MODE (2-3 Screens)</span>
+      <h1>SMC Dealership Widget Prototype</h1>
+      <p>Streamlined experience for fast lead capture</p>
+    </div>
+
+    <!-- SMC Widget Container -->
+    <div class="smc-widget" id="smcWidget">
+
+      <!-- Step 1: Vehicle Entry -->
+      <div class="smc-widget-screen" id="screen1">
+        <div class="smc-widget-header">
+          <div class="smc-widget-dealer-logo">
+            <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="120" height="40" rx="4" fill="white" fill-opacity="0.2"/>
+              <text x="60" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">DEALER LOGO</text>
+            </svg>
+          </div>
+          <h2 class="smc-widget-title">Get an instant offer for your car</h2>
+          <p class="smc-widget-subtitle">Powered by CarGurus</p>
+        </div>
+
+        <div class="smc-widget-body">
+          <form id="vehicleForm">
+            <div class="smc-form-group">
+              <label class="smc-form-label smc-form-label-required">License Plate or VIN</label>
+              <input type="text" class="smc-form-input" id="vinInput" placeholder="e.g., ABC1234 or 5N1AL0MM0GC520681" required>
+              <span class="smc-form-error">Please enter a valid license plate or VIN</span>
+            </div>
+
+            <div class="smc-form-row">
+              <div class="smc-form-group">
+                <label class="smc-form-label smc-form-label-required">State</label>
+                <select class="smc-form-select" id="stateSelect" required>
+                  <option value="">Select state</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="CA">California</option>
+                  <option value="NY">New York</option>
+                  <option value="TX">Texas</option>
+                </select>
+                <span class="smc-form-error">Please select a state</span>
+              </div>
+
+              <div class="smc-form-group">
+                <label class="smc-form-label smc-form-label-required">Mileage</label>
+                <input type="number" class="smc-form-input" id="mileageInput" placeholder="e.g., 45000" required>
+                <span class="smc-form-error">Please enter mileage</span>
+              </div>
+            </div>
+
+            <button type="submit" class="smc-button smc-button-primary">Get My Offer</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Loading Screen -->
+      <div class="smc-widget-screen smc-hidden" id="screenLoading">
+        <div class="smc-loading">
+          <div class="smc-spinner"></div>
+          <p class="smc-loading-text">Finding your vehicle and calculating offer...</p>
+        </div>
+      </div>
+
+      <!-- Step 2: Quick Condition + Offer -->
+      <div class="smc-widget-screen smc-hidden" id="screen2">
+        <div class="smc-widget-header">
+          <h2 class="smc-widget-title">Your offer is ready</h2>
+          <p class="smc-widget-subtitle">Confirm your vehicle condition below</p>
+        </div>
+
+        <div class="smc-widget-body">
+          <div class="smc-vehicle-summary">
+            <img src="data:image/svg+xml,%3Csvg width='100' height='75' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='75' fill='%23ddd'/%3E%3Ctext x='50' y='40' font-family='Arial' font-size='12' fill='%23666' text-anchor='middle'%3EVehicle%3C/text%3E%3C/svg%3E" alt="Vehicle" class="smc-vehicle-image">
+            <div class="smc-vehicle-info">
+              <div class="smc-vehicle-name">2016 INFINITI QX60</div>
+              <div class="smc-vehicle-vin">VIN: 5N1AL0MM0GC520681</div>
+            </div>
+          </div>
+
+          <div class="smc-offer-display">
+            <div class="smc-offer-label">Offer from Riverside Motors</div>
+            <div class="smc-offer-amount">$24,900</div>
+            <p class="smc-offer-disclaimer">
+              Based on vehicle details and current market data.<br>
+              Subject to in-person inspection.
+            </p>
+          </div>
+
+          <div class="smc-form-group">
+            <label class="smc-form-label smc-form-label-required">What's your car's condition?</label>
+            <div class="smc-condition-selector">
+              <div class="smc-condition-option" data-condition="excellent">
+                <span class="smc-condition-option-label">Excellent</span>
+                <span class="smc-condition-option-desc">Like new</span>
+              </div>
+              <div class="smc-condition-option selected" data-condition="good">
+                <span class="smc-condition-option-label">Good</span>
+                <span class="smc-condition-option-desc">Minor wear</span>
+              </div>
+              <div class="smc-condition-option" data-condition="fair">
+                <span class="smc-condition-option-label">Fair</span>
+                <span class="smc-condition-option-desc">Needs work</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="smc-button-group">
+            <button type="button" class="smc-button smc-button-secondary" id="backBtn2">Back</button>
+            <button type="button" class="smc-button smc-button-primary" id="continueBtn2">Continue</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Contact Info -->
+      <div class="smc-widget-screen smc-hidden" id="screen3">
+        <div class="smc-widget-header">
+          <h2 class="smc-widget-title">Almost there!</h2>
+          <p class="smc-widget-subtitle">How should we contact you?</p>
+        </div>
+
+        <div class="smc-widget-body">
+          <div class="smc-offer-display" style="margin-bottom: 24px;">
+            <div class="smc-offer-label">Your offer from Riverside Motors</div>
+            <div class="smc-offer-amount">$24,900</div>
+          </div>
+
+          <form id="contactForm">
+            <div class="smc-form-row">
+              <div class="smc-form-group">
+                <label class="smc-form-label smc-form-label-required">First Name</label>
+                <input type="text" class="smc-form-input" id="firstNameInput" placeholder="John" required>
+                <span class="smc-form-error">Please enter your first name</span>
+              </div>
+
+              <div class="smc-form-group">
+                <label class="smc-form-label smc-form-label-required">Last Name</label>
+                <input type="text" class="smc-form-input" id="lastNameInput" placeholder="Smith" required>
+                <span class="smc-form-error">Please enter your last name</span>
+              </div>
+            </div>
+
+            <div class="smc-form-group">
+              <label class="smc-form-label smc-form-label-required">Email</label>
+              <input type="email" class="smc-form-input" id="emailInput" placeholder="john.smith@example.com" required>
+              <span class="smc-form-error">Please enter a valid email</span>
+            </div>
+
+            <div class="smc-form-group">
+              <label class="smc-form-label smc-form-label-required">Phone</label>
+              <input type="tel" class="smc-form-input" id="phoneInput" placeholder="(555) 123-4567" required>
+              <span class="smc-form-error">Please enter a valid phone number</span>
+            </div>
+
+            <div class="smc-button-group">
+              <button type="button" class="smc-button smc-button-secondary" id="backBtn3">Back</button>
+              <button type="submit" class="smc-button smc-button-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Confirmation Screen -->
+      <div class="smc-widget-screen smc-hidden" id="screenConfirmation">
+        <div class="smc-confirmation">
+          <div class="smc-confirmation-icon">✓</div>
+          <h2 class="smc-confirmation-title">We've received your information!</h2>
+          <p class="smc-confirmation-message">
+            Riverside Motors will contact you shortly to schedule an inspection and finalize your offer of <strong>$24,900</strong>.
+          </p>
+          <p style="color: #6B7280; font-size: 14px; margin-bottom: 24px;">
+            Need to reach them sooner?<br>
+            <strong>Call: (555) 555-5555</strong>
+          </p>
+          <button class="smc-button smc-button-primary" onclick="location.reload()">Get Another Offer</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="quick-mode.js"></script>
+</body>
+</html>

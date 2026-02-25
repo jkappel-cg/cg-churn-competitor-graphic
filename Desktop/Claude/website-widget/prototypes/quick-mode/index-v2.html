@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC Widget - Quick Mode v2</title>
+  <link rel="stylesheet" href="../../assets/css/widget-v2.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Graphik', -apple-system, sans-serif;
+    }
+
+    /* Demo wrapper to simulate dealer website */
+    .demo-site-header {
+      background: #fff;
+      padding: 16px 24px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .demo-site-content {
+      background: #f9fafb;
+      padding: 40px 0;
+      min-height: 300px;
+      text-align: center;
+      color: #6b7280;
+    }
+
+    .demo-site-footer {
+      background: #111827;
+      padding: 40px 24px;
+      color: #9ca3af;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Simulated Dealer Website -->
+  <div class="demo-site-header">
+    <strong style="font-size: 18px;">Riverside Motors</strong>
+  </div>
+
+  <div class="demo-site-content">
+    <p>↓ Widget embedded below ↓</p>
+  </div>
+
+  <!-- SMC WIDGET STARTS HERE -->
+  <div class="smc-widget-blade theme-dark" id="widget">
+    <div class="smc-widget-container">
+
+      <!-- Screen 1: Entry (Dark theme) -->
+      <div class="smc-screen" id="screen1">
+        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+          <h1 class="smc-widget-headline">Sell your car for the best price</h1>
+          <p class="smc-widget-subheadline">Get an instant offer from Riverside Motors in under 2 minutes.</p>
+        </div>
+
+        <div class="smc-form" style="max-width: 700px; margin: 40px auto 0;">
+          <form id="entryForm">
+            <div class="smc-form-grid smc-form-grid-3">
+              <div class="smc-form-field">
+                <label class="smc-form-label">License plate or VIN</label>
+                <input type="text" class="smc-form-input" placeholder="e.g., C4R GURU" required>
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">State</label>
+                <select class="smc-form-select" required>
+                  <option value="">Select</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="CA">California</option>
+                </select>
+              </div>
+              <div class="smc-form-field">
+                <label class="smc-form-label">Mileage</label>
+                <input type="number" class="smc-form-input" placeholder="45000" required>
+              </div>
+            </div>
+            <button type="submit" class="smc-btn smc-btn-primary smc-btn-full">Get started</button>
+          </form>
+
+          <div class="smc-powered-by" style="justify-content: center; margin-top: 24px; color: #6b7280;">
+            <span>Powered by</span>
+            <strong style="color: #2E5ED6;">CarGurus</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- SMC WIDGET ENDS HERE -->
+
+  <div class="demo-site-footer">
+    <p>Simulated dealer website footer</p>
+  </div>
+
+  <script>
+    document.getElementById('entryForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Form submitted! (Next screens coming next)');
+    });
+  </script>
+
+</body>
+</html>

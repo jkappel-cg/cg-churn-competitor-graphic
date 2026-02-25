@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC Widget - Demo Index</title>
+  <link rel="stylesheet" href="assets/css/widget-v2.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Graphik', -apple-system, sans-serif;
+      background: #f7f7f7;
+      color: #111827;
+      min-height: 100vh;
+    }
+
+    .header {
+      padding: 60px 40px 40px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+      background: white;
+    }
+
+    .header h1 {
+      font-family: 'Rund Display', 'Graphik', sans-serif;
+      font-size: 56px;
+      margin: 0 0 16px 0;
+      font-weight: 700;
+      color: #05317b;
+    }
+
+    .header p {
+      font-size: 20px;
+      color: #6B7280;
+      margin: 0;
+    }
+
+    .cg-logo {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #9CA3AF;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-family: 'Rund Display', 'Graphik', sans-serif;
+      font-size: 32px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #6B7280;
+      margin-bottom: 32px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .demo-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .demo-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2E5ED6, #52B788);
+    }
+
+
+    .demo-card h3 {
+      font-size: 24px;
+      margin: 0 0 12px 0;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .demo-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #6B7280;
+      margin-bottom: 24px;
+    }
+
+    .demo-card .features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+    }
+
+    .demo-card .features li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: #4B5563;
+    }
+
+    .demo-card .features li::before {
+      content: '✓';
+      color: #52B788;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .demo-link {
+      display: inline-block;
+      background: #2E5ED6;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .demo-link:hover {
+      background: #2451C5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(46, 94, 214, 0.3);
+    }
+
+    .badge {
+      display: inline-block;
+      background: #2E5ED6;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 8px;
+      text-transform: uppercase;
+    }
+
+    .badge.recommended {
+      background: #10B981;
+    }
+
+    .badge.new {
+      background: #E03838;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #e5e7eb;
+      color: #9CA3AF;
+      font-size: 14px;
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 36px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>SMC Dealership Widget</h1>
+    <p>Interactive prototypes and implementation examples</p>
+    <div class="cg-logo">Powered by CarGurus</div>
+  </div>
+
+  <div class="container">
+
+    <!-- Product Overview -->
+    <div class="section">
+      <div class="demo-card" style="max-width: none;">
+        <h2 class="section-title" style="margin-bottom: 24px;">📋 Product Overview</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 32px;">
+
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: #10B981;">💡 What It Is</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; color: #4B5563;">→ Embeddable SMC widget for dealer websites</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Runs on dealer's own domain (not marketplace)</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Uses dealer's existing SMC matrix & lead routing</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Branded as "Powered by CarGurus"</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ No separate pricing system to manage</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: #10B981;">🎯 Who It's For</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Primary:</strong> Existing SMC dealers who want:</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• More consumer-sourced vehicles</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Alternative to KBB ICO / TrueCar widgets</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• To consolidate vendor solutions</li>
+              <li style="padding: 6px 0; color: #4B5563; margin-top: 8px;"><strong>Internal:</strong> SMC Sales & PS teams</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Position as upgrade/add-on</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Drive stickier SMC adoption</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: #10B981;">🔥 Why It Matters</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; color: #4B5563;">→ Dealers explicitly requested this functionality</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Expands SMC beyond CG marketplace traffic</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Captures dealer's own website visitors</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Improves SMC retention & perceived ROI</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Reduces early SMC churn</li>
+              <li style="padding: 6px 0; color: #4B5563;">→ Competitive alternative to KBB (~$8K/mo)</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 32px; padding-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: #2E5ED6;">📍 Where It Lives</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Standalone Page:</strong> /sell-your-car</li>
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Homepage Blade:</strong> Hero or footer section</li>
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Modal Popup:</strong> Nav button trigger</li>
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Service Pages:</strong> Service lane upsell</li>
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Marketing:</strong> Email, social, paid ads</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: #2E5ED6;">⚙️ How It Works</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; color: #4B5563;">1. Dealer copies embed code snippet</li>
+              <li style="padding: 6px 0; color: #4B5563;">2. Pastes into their website CMS</li>
+              <li style="padding: 6px 0; color: #4B5563;">3. Widget loads with dealer's SMC config</li>
+              <li style="padding: 6px 0; color: #4B5563;">4. Consumer enters vehicle details</li>
+              <li style="padding: 6px 0; color: #4B5563;">5. Instant offer via dealer's matrix</li>
+              <li style="padding: 6px 0; color: #4B5563;">6. Lead flows to SMC dashboard + CRM</li>
+              <li style="padding: 6px 0; color: #4B5563;">7. Tagged as "website widget" source</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 12px; color: #2E5ED6;">💰 How We'll Sell It</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: 6px 0; color: #4B5563;"><strong>Positioning:</strong></li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• "SMC Plus" or "SMC Premium" tier</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Bundle with marketing assets</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Natural upgrade for existing SMC</li>
+              <li style="padding: 6px 0; color: #4B5563; margin-top: 8px;"><strong>Value Props:</strong></li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• More leads from same subscription</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Replace expensive KBB/TrueCar</li>
+              <li style="padding: 6px 0; color: #4B5563; padding-left: 16px;">• Increase switching costs</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 32px; padding: 20px; background: #EEF2FF; border-radius: 8px; border-left: 4px solid #2E5ED6;">
+          <strong style="font-size: 16px; color: #111827;">🎯 Success Metrics:</strong>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 12px; font-size: 14px; color: #4B5563;">
+            <div>• Widget adoption rate by SMC dealers</div>
+            <div>• Incremental leads per dealer</div>
+            <div>• SMC retention improvement</div>
+            <div>• KBB/TrueCar replacement wins</div>
+            <div>• Time to first widget lead</div>
+            <div>• Widget → purchase conversion</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Demos -->
+    <div class="section">
+      <h2 class="section-title">🎯 Main Demos</h2>
+      <p class="section-subtitle">Full interactive prototypes with all features</p>
+
+      <div class="card-grid">
+        <div class="demo-card" style="grid-column: 1 / -1; max-width: 800px;">
+          <h3>Complete Flow Demo <span class="badge recommended">Start Here</span></h3>
+          <p>Full interactive demo with all three implementation patterns, theme switcher, flow toggle, and live embed code generation.</p>
+          <ul class="features" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px;">
+            <li>A. Standalone Page</li>
+            <li>B. Embedded Blade</li>
+            <li>C. Modal Popup</li>
+            <li>Quick & Detailed Flow modes</li>
+            <li>Dark & Light themes</li>
+            <li>Live embed code viewer with copy</li>
+          </ul>
+          <a href="demo-full-flow.html" class="demo-link">View Complete Demo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documentation -->
+    <div class="section">
+      <h2 class="section-title">📚 Documentation</h2>
+      <p class="section-subtitle">Installation guides and technical documentation</p>
+
+      <div class="card-grid">
+        <div class="demo-card">
+          <h3>Dealer Installation Guide</h3>
+          <p>Complete documentation for dealers to install the widget on their websites.</p>
+          <ul class="features">
+            <li>Copy/paste embed codes</li>
+            <li>Configuration options</li>
+            <li>Best practices</li>
+            <li>Troubleshooting guide</li>
+          </ul>
+          <a href="dealer-install-guide.html" class="demo-link">View Guide →</a>
+        </div>
+
+        <div class="demo-card">
+          <h3>Technical Summary</h3>
+          <p>Developer documentation covering the embed system architecture and implementation.</p>
+          <ul class="features">
+            <li>System architecture</li>
+            <li>API integration points</li>
+            <li>Production checklist</li>
+            <li>Security considerations</li>
+          </ul>
+          <a href="EMBED-SUMMARY.md" class="demo-link">View Docs →</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- File Structure -->
+    <div class="section">
+      <h2 class="section-title">📂 Project Structure</h2>
+      <div class="demo-card" style="max-width: 800px;">
+        <pre style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.6;">
+website-widget/
+├── index.html                    ← You are here
+├── demo-full-flow.html          ⭐ Main demo (all-in-one)
+├── dealer-install-guide.html    Installation guide
+│
+├── assets/
+│   ├── css/
+│   │   ├── widget-v2.css        Core widget styles
+│   │   └── widget-full-flow.css Flow-specific styles
+│   └── fonts/                   Graphik & Rund Display fonts
+│
+├── demo-full-flow.js            Demo logic & screen templates
+├── widget-embed.js              Production embed script
+└── prototypes/                  Early concept prototypes
+        </pre>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="footer">
+    <p>CarGurus SMC Dealership Widget • Version 1.0 • February 2026</p>
+  </div>
+
+</body>
+</html>
